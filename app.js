@@ -7,8 +7,8 @@ app.use( '/', express.static('public'));
 
 // viewed at http://localhost:8080
 app.get('/', function(req, res) {
-    res.write('Hello Trading World !! ');
-    res.end();
+    res.sendFile(path.join(__dirname + '/public/html/index.html'));
+
 
 })
 
