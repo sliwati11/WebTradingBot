@@ -66,7 +66,7 @@
                 <label class="col-xs-3 control-label">Von</label>
                     <div class="well">
                         <div id="datetimepicker1" class="input-append date">
-                            <input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
+                            <input onmousedown="datePicker()" data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
                             <span class="add-on">
                                 <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
                             </span>
@@ -79,7 +79,7 @@
                 <div class="form-group form-inline">
                 <label class="col-xs-3 control-label">Bis</label>
                     <div class="input-group input-append date" id="dateRangePicker2" validate="url">
-                        <input onclick="datePicker()" type="text" class="form-control" name="date2" />
+                        <input onmousedown="datePicker()" type="text" class="form-control" name="date2" />
                         <span class="input-group-addon add-on"><span class="icon-th"></span></span>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
 
             <div class="col-sm-6" >
                 <h4><br> </h4>
-                <input type="text"  onclick="rangePicker()" name="daterange" value="01/01/2018 - 01/15/2018" />
+                <input type="text"  onmousedown="rangePicker()" name="daterange" value="01/01/2018 - 01/15/2018" />
             </div>
 
 
