@@ -1,0 +1,17 @@
+div {
+    margin-bottom: 10px;
+}
+
+input:invalid+span:after {
+    content: '✖';
+    padding-left: 5px;
+    background-color: #ffdddd;
+}
+
+input:valid+span:after {
+    content: '✓';
+    padding-left: 5px;
+    background-color: #ddffdd;
+}
+
+
