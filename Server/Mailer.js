@@ -3,7 +3,7 @@ const path = require('path');
 const ABSPATH = path.dirname(process.mainModule.filename); // Absolute path to our app directory
 
 
-const MyTransporter = {
+const Mailer = {
     transporter: '',
     init : function(){
         this.transporter = nodemailer.createTransport({ // Use an app specific password here
@@ -40,4 +40,4 @@ const MyTransporter = {
     },
 };
 
-module.exports = MyTransporter;
+module.exports = Mailer;
