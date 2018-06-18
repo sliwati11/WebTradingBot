@@ -5,7 +5,7 @@ import os
 import random
 import numpy as np
 from TradingData import TradinData
-
+import sys
 
 class TradingBot(object):
     """
@@ -14,8 +14,9 @@ class TradingBot(object):
     """
 
     def __init__(self):
-        self.populationSize = 2000
-        self.generationAnzahl = 3
+        #print(sys.argv[0], sys.argv[1], sys.argv[2])
+        self.populationSize = int(sys.argv[1]) #2000
+        self.generationAnzahl =int(sys.argv[2]) #3
         self.population = []
         self.data = TradinData().data
 
@@ -26,10 +27,10 @@ class TradingBot(object):
 
     def startBot(self):
         #wechselt das Verzeichnis damit man auf die Outputdateien zugreifen kann.
-        os.chdir(os.getcwd() + r'/output')
+        os.chdir(os.getcwd() + r'\GeneticTrader\output')
         print(os.getcwd())
-        i= int(os.listdir(os.getcwd())[-1].split('.txt')[0][3:]) + 1
-        dateiName= "out{:03}.txt".format(i)
+        i= int(os.listdir(os.getcwd())[-1].split('out')[1]) + 1
+        dateiName= "out{:03}".format(i)
         #Open a File
         self.start = datetime.now()
         fo= open(dateiName,"w")
@@ -61,12 +62,12 @@ class TradingBot(object):
                 #   x.portfolio['USD'], x.genotype.einkaufProzent, x.genotype.verkaufProzent, x.genotype.stoplossEinkauf,
                 #    x.genotype.stoplossVerkauf, x.tradesNum, x.gezahlt) for x in agents])
                 fo.write("  USD, einkaufProzent, verkaufProzent, stoplossEinkauf, stoplossVerkauf \n");
-                for x in agents:
+                '''for x in agents:
                     fo.write(" (%(usd).2lf %(einkaufProzent).2lf %(verkaufProzent).2lf %(stoplossEinkauf).2lf %(stoplossVerkauf).2lf "
                              "%(tradesNum).2lf %(gezahlt).2lf)\n" % {"usd": x.portfolio['USD'], "einkaufProzent": x.genotype.einkaufProzent,
                             "verkaufProzent":x.genotype.verkaufProzent, "stoplossEinkauf":  x.genotype.stoplossEinkauf ,
                              "stoplossVerkauf": x.genotype.stoplossVerkauf, "tradesNum": x.tradesNum, "gezahlt":  x.gezahlt})
-
+                '''
                 #print("Hold: ", holdings)
                 fo.write("Hold: %d\n"% holdings)
                 #print("The best strategy is " + str(int(agents[0].portfolio['USD'] / holdings * 100) - 100) + "% better than holding")
@@ -114,7 +115,7 @@ class TradingBot(object):
     """
      2 Agenten auswählen, nach ihrer Wahrscheinlichkeit ausgewählt zu werden
     Diese beiden mit einer Wahrscheinlichkeit miteinander paaren
-    Die Kinder falls Sie sich gepaart haben, werden einer neue Generation hinzugefügt un die Eltern sterben
+    Die Kinder falls Sie sich gepaart haben, werden einer neue Generation hinzugefügt und die Eltern sterben
     Sollten Sie sich nicht paaren, werden die Eltern in der neuen Generation hinzugefügt
     """
 
