@@ -4,20 +4,22 @@ const ABSPATH = path.dirname(process.mainModule.filename); // Absolute path to o
 
 
 const Mailer = {
-    transporter: '',
-    init : function(){
+    emailAdress:'',
+    init : function(obj){
+        this.emailAdress = obj.email_input;
         this.transporter = nodemailer.createTransport({ // Use an app specific password here
-                host: 'smtp.ethereal.email',
-                port: 587,
+            host: 'mail.hotmail.fr',
+            port: 587,
+            service: 'hotmail',
                 auth: {
-                    user: 'uu4axvkbuwdxcapx@ethereal.email',
-                    pass: 'Vxm3wCf4EbStgFCtZF'
+                    user: 'zalva@hotmail.fr',//'uu4axvkbuwdxcapx@ethereal.email',
+                    pass: 'salyhana82' //'Vxm3wCf4EbStgFCtZF'
                 },
         });
     },
     options:{
-        from: 'uu4axvkbuwdxcapx@ethereal.email',
-        to: 'v3kuou2e6ahchesh@ethereal.email',
+        from: 'zalva@hotmail.fr',
+        to: this.emailAdress, //'uu4axvkbuwdxcapx@ethereal.email',
         subject: 'Test',
         text: 'Hello World',
         attachments: [
@@ -29,7 +31,10 @@ const Mailer = {
         ]
     },
     sendMail : function(){
+        this.options.to = this.emailAdress;
         this.transporter.sendMail(this.options, function(error){
+            console.log('send dta: ', this.emailAdress);
+
             console.log('Senden erfolgreich!!');
             if (error) {
                 console.log('Error beim Senden', error);
