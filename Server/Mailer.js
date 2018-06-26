@@ -1,15 +1,11 @@
 const nodemailer = require('nodemailer');
 const path = require('path');
 const ABSPATH = path.dirname(process.mainModule.filename); // Absolute path to our app directory
-const fs = require('fs');
 
 const Mailer = {
     emailAdress:'',
      fileToSend:'',
     init : function(obj){
-        var files = fs.readdirSync('./GeneticTrader/output');
-        this.fileToSend = files[files.length -1 ];
-        console.log(files[files.length -1 ]);
         this.emailAdress = obj.email_input;
         this.transporter = nodemailer.createTransport({ // Use an app specific password here
             host: 'mail.hotmail.fr',
@@ -30,17 +26,17 @@ const Mailer = {
             {
                 filename : 'ergebnis',
                 path: ''
-
             }
         ]
     },
-    sendMail : function(){
+    sendMail : function(fileToSend){
+        console.log('Files: '+fileToSend);
+        //this.fileToSend = fileToSend[fileToSend.length-1];
         this.options.to = this.emailAdress;
         this.options.attachments.path = ABSPATH + '\\GeneticTrader\\output\\' +this.fileToSend;
         console.log('this.options.attachments.path: '+this.options.attachments.path);
         this.transporter.sendMail(this.options, function(error){
             console.log('send dta: ', this.emailAdress);
-
             console.log('Senden erfolgreich!!');
             if (error) {
                 console.log('Error beim Senden', error);

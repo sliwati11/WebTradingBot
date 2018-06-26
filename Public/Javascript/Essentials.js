@@ -10,18 +10,35 @@ function rangePicker(){
     });
 
 }
+function getAgentenAnzahl() {
+    var agentenAnzahl= null;
+    if (typeof window != "undefined"){
+        agentenAnzahl= window.parent.document.getElementById("agentenAnzahl")
+    }
+    return agentenAnzahl || 1000;
+}
+function getGenerationAnzahl() {
+    var generationAnzahl=null;
+    if (typeof window !== "undefined"){
+        generationAnzahl= window.parent.document.getElementById("generationAnzahl");
+        console.log("var agentenAnzah: ");
+    }
 
-
-
+    return generationAnzahl || 2;
+}
 function myFunction() {
-    var x = window.parent.document.getElementsByName("date")[0];
 
+    var x = window.parent.document.getElementById("inputTradingPair");
+    var falseInput ='<div class="alert alert-success container text-center" ><h3>Sorry!! Falsche Eingabe \'-\'</h3> </div>';
+    console.log('myFunkction: ',x.value);
 
-    document.getElementById("demo").innerHTML = 'Date: '+x.value;
+    document.getElementById("failure").innerHTML= falseInput;
+    document.getElementById("DataConfig").innerHTML = "";
+    //document.getElementById("gesucht").style.visibility = 'visible';
 }
 
 function ValidateHowMuchData() {
-    var inputDate=window.parent.document.getElementsByName('date');
+    var inputDate= window.parent.document.getElementsByName('date');
 
     console.log('date: ', inputDate.value);
 
@@ -70,3 +87,4 @@ var FormValidator = (function(){
         }
     }
 })();
+

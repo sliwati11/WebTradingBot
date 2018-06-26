@@ -22,158 +22,166 @@
 
 </head>
 <body>
-
-<div class="jumbotron text-center">
-    <h1>My Trading Bot Page</h1>
-    <il>DAta Configration</il>
+    <br>
+<div class="jumbotron text-center container">
+    <h1>Trading Bot Page</h1>
 </div>
-<div class="alert alert-success container"><h3>Data Configuration</h3> </div>
-<div class="container">
-    <form id="form1" method="post" action ="">
-        <div class="row">
-            <div class="col-sm-6">
-                <h3>Choose an Exchange</h3>
+
+    <div id="failure" ></div>
+    <div id="botIsRunning"></div>
+
+<div id="DataConfig">
+    <div class="alert alert-success container"><h3>Data Configuration</h3> </div>
+    <div class="container">
+        <form id="form" method="post"  enctype="application/json" onsubmit="return handleSubmit()">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>Choose an Exchange</h3>
+                        <!--  Auswahlfeld  -->
+                    <div class="form-group form-inline">
+                        <label for="inputExchange">Exchange </label>
+                        <select id="inputExchange" class="form-control">
+                            <option>Bitstamp</option>
+                            <option>Bitfinex</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h3>Choose a TradingPair</h3>
                     <!--  Auswahlfeld  -->
-                <div class="form-group form-inline">
-                    <label for="input1">Exchange </label>
-                    <select id="input1" class="form-control">
-                        <option>Bitstamp</option>
-                        <option>Bitfinex</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <h3>Choose a TradingPair</h3>
-                <!--  Auswahlfeld  -->
-                <div class="form-group form-inline">
-                    <label for="input2">TradinPair:  </label>
-                    <select id="input2" class="form-control">
-                        <option>Eth/Btc</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <h4>Zeitraum </h4>
-                <input type="text"  onmousedown="rangePicker()" name="daterange" value="01/01/2018 - 01/15/2018" />
-
-            </div>
-            <div class="col-sm-6">
-                <h4>Choose an Interval</h4>
-                <!--  Auswahlfeld  -->
-                <div class="form-group form-inline row">
-                    <label for="input1">Interval in </label>
-                    <select id="interval" class="form-control">
-                        <option>Hours</option>
-                        <option>Minutes</option>
-                        <option>Seconds</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid alert alert-success">
-            <h3>AI Configuration</h3>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <h3>Agenten </h3>
-                <!--  Auswahlfeld  -->
-                <div class="form-group form-inline row">
-                    <label for="input1">Anzahl </label>
-                    <input type="number" name="agentenAnzahl" min="1" max="3000" required>
-                    <span class="validity"></span>
-
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <h3>Generationen </h3>
-                <!--  Auswahlfeld  -->
-                <div class="form-group form-inline row">
-                    <label for="input1">Anzahl </label>
-                    <input type="number" name="agentenAnzahl" min="1" max="10" required>
-                    <span class="validity"></span>
-
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <h3>Buy range </h3>
-                <div class="form-group form-inline row">
-                    <label for="input1">von </label>
-                    <input type="number" name="buy_range_von" min="1" max="1000" required>
-                    <span class="validity"></span>
-                    <br><br>
-                    <label for="input1">bis </label>
-                    <input type="number" name="buy_range_bis" min="1" max="1000" required>
-                    <span class="validity"></span>
-
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <h3>Sell range </h3>
-                <div class="form-group form-inline row">
-                    <label for="input1">von </label>
-                    <input type="number" name="sell_range_von" min="1" max="1000" required>
-                    <span class="validity"></span>
-                    <br><br>
-                    <label for="input1">bis </label>
-                    <input type="number" name="sell_range_bis" min="1" max="1000" required>
-                    <span class="validity"></span>
-
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <h3>Stoploss Buy range </h3>
-                <div class="form-group form-inline row">
-                    <label for="input1">von </label>
-                    <input type="number" name="buy_stoplos_von" min="1" max="1000" required>
-                    <span class="validity"></span>
-                    <br><br>
-                    <label for="input1">bis </label>
-                    <input type="number" name="buy_stoplos_bis" min="1" max="1000" required>
-                    <span class="validity"></span>
-
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <h3> Stoploss Sell range </h3>
-                <div class="form-group form-inline row">
-                    <label for="input1">von </label>
-                    <input type="number" name="sell_stoplos_von" min="1" max="1000" required>
-                    <span class="validity"></span>
-                    <br><br>
-                    <label for="input1">bis </label>
-                    <input type="number" name="sell_stoplos_bis" min="1" max="1000" required>
-                    <span class="validity"></span>
-
+                    <div class="form-group form-inline">
+                        <label for="inputTradingPair">TradinPair:  </label>
+                        <select id="inputTradingPair" class="form-control">
+                            <option>Eth/Btc</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <h3> Enter your Email adress please </h3>
                 <div class="col-sm-6">
-                    <label for="email_input">Email address:</label>
-                    <input type="email" id="email_input" required/>
-                    <span class="validity"></span>
+                    <h4>Zeitraum </h4>
+                    <input type="text" onmousedown="rangePicker()" name="daterange" value="01/01/2018 - 01/15/2018" />
                 </div>
-
+                <div class="col-sm-6">
+                    <h4>Choose an Interval</h4>
+                    <!--  Auswahlfeld  -->
+                    <div class="form-group form-inline row">
+                        <label for="interval">Interval in </label>
+                        <select id="interval" class="form-control">
+                            <option>Hours</option>
+                            <option>Minutes</option>
+                            <option>Seconds</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-        </div>
-        <input type="submit" name="findStrategieBtn" value="Find Strategie">
-    </form>
-    <script language="JavaScript" type="text/javascript" src="..\Javascript\Essentials.js"></script>
+            <div class="container-fluid alert alert-success">
+                <h3>AI Configuration</h3>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>Agenten </h3>
+                    <!--  Auswahlfeld  -->
+                    <div class="form-inline row">
+                        <label for="agentenAnzahl">Anzahl </label>
+                        <input id='agentenAnzahl' type="number" name="agentenAnzahl" min="1000" max="3000" >
+                        <span class="validity"></span>
 
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h3>Generationen </h3>
+                    <!--  Auswahlfeld  -->
+                    <div class="form-inline row">
+                        <label for="generationAnzahl">Anzahl </label>
+                        <input type="number" id="generationAnzahl" name="generationAnzahl" min="1" max="10" >
+                        <span class="validity"></span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>Buy range </h3>
+                    <div class="form-group form-inline row">
+                        <label for="buy_range_von">von </label>
+                        <input id= 'buy_range_von' type="number" name="buy_range_von" min="1" max="1000" >
+                        <span class="validity"></span>
+                        <br><br>
+                        <label for="buy_range_bis">bis </label>
+                        <input id = 'buy_range_bis' type="number" name="buy_range_bis" min="1" max="1000" >
+                        <span class="validity"></span>
+
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h3>Sell range </h3>
+                    <div class="form-group form-inline row">
+                        <label for="sell_range_von">von </label>
+                        <input id= 'sell_range_von' type="number" name="sell_range_von" min="1" max="1000" >
+                        <span class="validity"></span>
+                        <br><br>
+                        <label for="sell_range_bis">bis </label>
+                        <input id= 'sell_range_bis' type="number" name="sell_range_bis" min="1" max="1000" >
+                        <span class="validity"></span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>Stoploss Buy range </h3>
+                    <div class="form-group form-inline row">
+                        <label for="buy_stoplos_von">von </label>
+                        <input id= 'buy_stoplos_von' type="number" name="buy_stoplos_von" min="1" max="1000" >
+                        <span class="validity"></span>
+                        <br><br>
+                        <label for="buy_stoplos_bis">bis </label>
+                        <input id= 'buy_stoplos_bis' type="number" name="buy_stoplos_bis" min="1" max="1000" >
+                        <span class="validity"></span>
+
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h3> Stoploss Sell range </h3>
+                    <div class="form-group form-inline row">
+                        <label for="sell_stoplos_von">von </label>
+                        <input id= 'sell_stoplos_von' type="number" name="sell_stoplos_von" min="1" max="1000" >
+                        <span class="validity"></span>
+                        <br><br>
+                        <label for="sell_stoplos_bis">bis </label>
+                        <input id= 'sell_stoplos_bis' type="number" name="sell_stoplos_bis" min="1" max="1000" >
+                        <span class="validity"></span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3> Enter your Email adress please </h3>
+                    <div class="form-group form-inline row">
+                        <label for="email_input">Email :</label>
+                        <input type="email" id="email_input" name="email_input" >
+                        <span class="validity"></span>
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" class="btn" id="findStrategieBtn" onclick="handleSubmit()" value="Find Strategie" />
+        </form>
+        <script language="JavaScript" type="text/javascript" src="..\Javascript\Essentials.js"></script>
+        <script language="JavaScript" type="text/javascript" src="..\Javascript\display.js"></script>
+    </div>
+    </div>
 </div>
+
 
 </body>
 </html>

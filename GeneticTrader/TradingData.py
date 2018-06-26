@@ -27,7 +27,7 @@ class TradinData(object):
 
     def loadData(self):
         print("Load new Data!!\n")
-        file= "Data/bitstampUSD.csv"
+        file= r"C:\Users\salwa\WebstormProjects\WebTradingBot\GeneticTrader\Data\Bitcoincharts _ Charts_last5_1.csv"
         preis =[]
         i = 0
         with open(file, "r") as f:

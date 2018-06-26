@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const input ={
     falseInputDisplay: function myFunction() {
@@ -14,22 +14,7 @@ const input ={
     },
 
 };
-function getAgentenAnzahl() {
-    var agentenAnzahl= null;
-    if (typeof window !== "undefined"){
-        agentenAnzahl= window.parent.document.getElementById("agentenAnzahl");
-    }
-    return agentenAnzahl || 1000;
-}
-function getGenerationAnzahl() {
-    var generationAnzahl= null;
-    if (typeof window !== "undefined"){
-        generationAnzahl= window.parent.document.getElementById("generationAnzahl");
-        console.log("var agentenAnzah: ");
-    }
 
-    return generationAnzahl || 2;
-}
 
 function handleSubmit(){
 
@@ -43,17 +28,30 @@ function handleSubmit(){
         var formData={
             'agentenAnzahl': $('#agentenAnzahl').val(),
             'generationAnzahl':$('#generationAnzahl').val(),
+
+            'buy_range_von': $('#buy_range_von').val(),
+            'buy_range_bis': $('#buy_range_bis').val(),
+
+            'sell_range_von': $('#sell_range_von').val(),
+            'sell_range_bis': $('#sell_range_bis').val(),
+
+            'buy_stoplos_von': $('#buy_stoplos_von').val(),
+            'buy_stoplos_bis': $('#buy_stoplos_bis').val(),
+
+            'sell_stoplos_von': $('#sell_stoplos_von').val(),
+            'sell_stoplos_bis': $('#sell_stoplos_bis').val(),
+
             'email_input' :$('#email_input').val()
         };
-        var action = form.attr("/data"),
+        var action = form.attr("/emailAdress"),
             method = form.attr("post"),
             data   = formData;//form.serialize(); // baut die Daten zu einem String nach dem Muster vorname=max&nachname=Müller&alter=42 ... zusammen
         // Der eigentliche AJAX Aufruf
         $.ajax({
-            url : '/data',
+            url : '/ok',
             type : 'post',
             data :  formData,
-            dataType    : 'json', // what type of data do we expect back from the server
+            dataType    : 'json', // what type of emailAdress do we expect back from the server
             encode          : true
         }).done(
             function (dataserver) {
@@ -63,8 +61,6 @@ function handleSubmit(){
 
                 }else{
                     input.trueInputDisplay();
-                    getAgentenAnzahl();
-                    console.log('getGenerationAnzahl: '+getGenerationAnzahl);
                 }
             }).fail(function() {
             // Bei Fehler

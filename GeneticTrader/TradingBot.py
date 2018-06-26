@@ -14,9 +14,9 @@ class TradingBot(object):
     """
 
     def __init__(self):
-        #print(sys.argv[0], sys.argv[1], sys.argv[2])
-        self.populationSize = int(sys.argv[1]) #2000
-        self.generationAnzahl =int(sys.argv[2]) #3
+        line= sys.stdin.readline()
+        self.populationSize = int(line[0]) #2000
+        self.generationAnzahl = int(line[1]) #3
         self.population = []
         self.data = TradinData().data
 
@@ -26,6 +26,7 @@ class TradingBot(object):
         self.outputDatei= self.startBot()
 
     def startBot(self):
+
         #wechselt das Verzeichnis damit man auf die Outputdateien zugreifen kann.
         os.chdir(os.getcwd() + r'\GeneticTrader\output')
         print(os.getcwd())
@@ -76,8 +77,9 @@ class TradingBot(object):
 
                 fo.write('Entire job took:' + str(datetime.now() - self.start)+'\n')
                 fo.close()
+                #return fo
 
-                break
+
             else:
                 self.population = self.kreuzung()
 
