@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const  validators={
     validateDataAmount: function () {
@@ -6,56 +6,45 @@ const  validators={
         
     },
     validateAgentenAnzahl :function (agententenAnzahl) {
-        if( Number(agententenAnzahl) >=1 ){
-            if( agententenAnzahl <=3000){
+        if( Number(agententenAnzahl) >=1 && agententenAnzahl <=3000){
                 return true;
-            }else {
-                return false;
-            }
         }
+        return false;
 
     },
     validateGenerationenAnzahl: function (generationenAnzahl) {
-        if( Number(generationenAnzahl) >=1 ){
-            if( Number(generationenAnzahl) <=5){
+        if( Number(generationenAnzahl) >=1 && Number(generationenAnzahl) <=5){
                 return true;
-            }
-
         }
-            return false;
+        return false;
     },
-    validateSellRange: function (sellRange) {
-        if( Number(sellRange) >=1 ){
-            if( Number(sellRange) <=1000){
-                return true;
-            }
-
+    validateSellRange: function (sellRange_von,sellRange_bis) {
+        let dif = Number(sellRange_bis) - Number(sellRange_von);
+        if( dif >= 2 && dif <= 1000){
+            return true;
         }
-            return false;
+        return false;
     },
-    validateBuyRange: function (buylRange) {
-        if( Number(buylRange) >=1 ){
-            if( Number(buylRange) <=1000){
+    validateBuyRange: function (buylRange_von, buyRange_bis) {
+        let dif =Number(buyRange_bis) - Number(buylRange_von);
+        if( dif>=2 && dif <= 1000 ){
                 return true;
-            }
         }
-            return false;
+        return false;
     },
-    validateStoplossBuyRange: function (stoplossBuyRange) {
-        if( Number(stoplossBuyRange) >=1 ){
-            if( Number(stoplossBuyRange) <=1000){
+    validateStoplossBuyRange: function (stoplossBuyRange_von, stoplossBuyRange_bis) {
+        let dif= Number(stoplossBuyRange_bis) - Number(stoplossBuyRange_von) ;
+        if( dif >=2  && dif <=1000 ){
                 return true;
-            }
         }
-            return false;
+        return false;
     },
-    validateStoplosSellRange: function (stoplossSellRange) {
-        if( Number(stoplossSellRange) >=1 ){
-            if( Number(stoplossSellRange) <=1000){
+    validateStoplosSellRange: function (stoplossSellRange_von, stoplossSellRange_bis) {
+        let dif= Number(stoplossSellRange_bis) - Number(stoplossSellRange_von);
+        if( dif >=2 && dif <= 1000){
                 return true;
-            }
         }
-            return false;
+        return false;
     },
     validateEmail: function (emailAdresse) {
         if (emailAdresse.length == 0){
