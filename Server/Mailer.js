@@ -21,7 +21,7 @@ const Mailer = {
         from: 'zalva@hotmail.fr',
         to: this.emailAdress, //'uu4axvkbuwdxcapx@ethereal.email',
         subject: 'Test',
-        text: 'Hello World',
+        text: 'Hallo\nIhre Strategien sehen so aus :\n',
         attachments: [
             {
                 filename : 'ergebnis',
@@ -29,14 +29,11 @@ const Mailer = {
             }
         ]
     },
-    sendMail : function(fileToSend){
-        console.log('Files: '+fileToSend);
-        //this.fileToSend = fileToSend[fileToSend.length-1];
+    sendMail : function(msgToSend){
         this.options.to = this.emailAdress;
-        this.options.attachments.path = ABSPATH + '\\GeneticTrader\\output\\' +this.fileToSend;
-        console.log('this.options.attachments.path: '+this.options.attachments.path);
+        this.options.text += msgToSend+'\n\n\n mit freundlichen Grüßen\n\nGeneticTrader'
+        //this.options.attachments.path = ABSPATH + '\\GeneticTrader\\output\\' +this.fileToSend;
         this.transporter.sendMail(this.options, function(error){
-            console.log('send dta: ', this.emailAdress);
             console.log('Senden erfolgreich!!');
             if (error) {
                 console.log('Error beim Senden', error);

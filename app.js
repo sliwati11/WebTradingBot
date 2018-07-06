@@ -10,7 +10,8 @@ var counter=0;
 
 
 const webServerModule={
-    init:function(){
+    init : function(){
+
         this.initRedis();
         this.initWebServer();
 
@@ -48,6 +49,7 @@ const webServerModule={
                 && validator.validateSellRange(exchange.sell_stoplos_von, exchange.sell_stoplos_bis)
                 && validator.validateEmail(exchange.email_input)
             ){
+                console.log('All is valide');
                 this.publisher.publish('TraderReady', JSON.stringify(exchange));
                 //pythonShell.initialize(exchange);//agentenAnzahl, generationAnzahl);
                 //pythonShell.init();
@@ -71,20 +73,23 @@ const webServerModule={
 
         }.bind(this));
     },
+
     initRedis:function () {
         this.redis = require("redis");
         this.publisher  = this.redis.createClient();
         this.subscriber = this.redis.createClient();
         this.subscriber.on("message", function (channel, message) {
 
-            if (channel == "TraderReady" ){
+            if (channel == "TraderReady:1" ){
                 console.log("sub TraderReady " + channel + ": " + message);
             }
             else if(channel == "InRedis"){
                 console.log("sub InRedis " + channel + ": " + message);
-                mailer.sendMail();
+                mailer.sendMail(message);
             }
+            //console.log('msg:'+ message)
         });
+        this.subscriber.subscribe("Test");
         this.subscriber.subscribe("TraderReady");
         this.subscriber.subscribe("InRedis");
     },
