@@ -45,7 +45,7 @@ const webServerModule={
             this.publisher.publish('TraderReady', JSON.stringify(exchange));
             requestify.get(url).then(function(response) {
                     // Get the response body
-                    var responseList= eval(response.getBody());
+                    var responseList= eval(response.getBody()) ? response.getBody.length >0 : '';
                     console.log('type in : ' + responseList.length);
                     if ( responseList.length < 1000 ){
                         console.log('vor');
