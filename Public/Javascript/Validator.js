@@ -1,10 +1,7 @@
 'use strict';
 
 const  validators={
-    validateDataAmount: function () {
 
-        
-    },
     validateAgentenAnzahl :function (agententenAnzahl) {
         if( Number(agententenAnzahl) >=1 && agententenAnzahl <=3000){
                 return true;
@@ -53,6 +50,5 @@ const  validators={
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
         return re.test(emailAdresse);
     }
-
 };
 module.exports = validators;
