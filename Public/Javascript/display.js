@@ -1,9 +1,17 @@
 'use strict';
 
 const input ={
-    falseInputDisplay: function myFunction() {
+    falseInputDisplay: function myFunction(data, ai ) {
+        var falseInput='';
+        if ( !data ){
+           falseInput="<div class='alert alert-danger container text-center'><h3>Sorry!! Trading Daten nicht ausreichend </h3> </div>";
+        }
+        if ( !ai ){
+           falseInput +="<div class='alert alert-danger container text-center'><h3>Sorry!! Falsche Eingabe</h3> </div>";
+        }
+        //var falseInput = '<div class="alert alert-danger container text-center" ><h3>Sorry!! Falsche Eingabe \'-\'</h3> </div>';
 
-        var falseInput = '<div class="alert alert-danger container text-center" ><h3>Sorry!! Falsche Eingabe \'-\'</h3> </div>';
+
         document.getElementById("failure").innerHTML = falseInput;
         document.getElementById("DataConfig").innerHTML = "";
     },
@@ -55,8 +63,8 @@ const input ={
             }).done(
                 function (dataserver) {
                     // Bei Erfolg
-                    if ( !dataserver.valide ){
-                        input.falseInputDisplay();
+                    if ( !dataserver.ai || !dataserver.data ){
+                        input.falseInputDisplay(dataserver.data, dataserver.ai);
 
                     }else{
                         input.trueInputDisplay();
@@ -117,8 +125,8 @@ function handleSubmit(){
         }).done(
             function (dataserver) {
             // Bei Erfolg
-                if ( !dataserver.valide ){
-                    input.falseInputDisplay();
+                if ( !dataserver.data || !dataserver.ai ){
+                    input.falseInputDisplay(dataserver.data, dataserver.ai);
 
                 }else{
                     input.trueInputDisplay();
@@ -132,7 +140,6 @@ function handleSubmit(){
 
 
 
-module.exports = input;
 
 
 

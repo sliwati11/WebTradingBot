@@ -45,14 +45,15 @@ const webServerModule={
             this.publisher.publish('TraderReady', JSON.stringify(exchange));
             requestify.get(url).then(function(response) {
                     // Get the response body
-                    var responseList= eval(response.getBody()) ? response.getBody.length >0 : '';
-                    console.log('type in : ' + responseList.length);
+                    console.log('response.body: ',response.body.length);
+                    var responseList= response.body.length >0 ? eval(response.getBody()) : '';
+                    console.log('length in : ' + responseList.length);
                     if ( responseList.length < 1000 ){
                         console.log('vor');
                         //res.send(JSON.stringify({ "valide": false }));
 
                         console.log('nach');
-                        res.send(JSON.stringify({ "valide": false }));
+                        res.send(JSON.stringify({'data': false, "ai": true  }));
                         console.log('nach nach');
 
                     }else{
@@ -72,13 +73,13 @@ const webServerModule={
 
                         ){
                             console.log('All is valide');
-                            res.send(JSON.stringify({ "valide": true }));
+                            res.send(JSON.stringify({ 'data': true, "ai": true }));
                             mailer.init(exchange);
                             console.log('Start Bot!!!');
                         }
                         else{
                             console.log('Cannot start Bot');
-                            res.send(JSON.stringify({ "valide": false }));
+                            res.send(JSON.stringify({ 'data': true, "ai": false }));
                         }
                         console.log('vor');
                         //res.send(JSON.stringify({ "valide": true }));

@@ -411,6 +411,7 @@
                     </optgroup>
                 </select>
             </div>
+
             <div class="row">
                 <div class="col-sm-6">
                     <h4>Time Period</h4>
@@ -481,27 +482,29 @@
                 <div class="col-sm-6">
                     <h3>Buy range </h3>
                     <div class="form-group form-inline row">
-                        <label for="buy_range_von">von </label>
-                        <input id= 'buy_range_von' type="number" name="buy_range_von" min="1" max="1000" value="1">
-                        <span class="validity"></span>
-                        <br><br>
-                        <label for="buy_range_bis">bis </label>
-                        <input id = 'buy_range_bis' type="number" name="buy_range_bis" min="1" max="1000" value="1000" >
-                        <span class="validity"></span>
-
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">von</span>
+                            <input id= 'buy_range_von' type="number" name="buy_range_von" min="1" max="1000" value="1">
+                            <span class="validity"></span>
+                            <br><br>
+                            <span class="input-group-text">bis</span>
+                            <input id = 'buy_range_bis' type="number" name="buy_range_bis" min="1" max="1000" value="1000" >
+                            <span class="validity"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <h3>Sell range </h3>
                     <div class="form-group form-inline row">
-                        <label for="sell_range_von">von </label>
-                        <input id= 'sell_range_von' type="number" name="sell_range_von" min="1" max="1000" value="1">
-                        <span class="validity"></span>
-                        <br><br>
-                        <label for="sell_range_bis">bis </label>
-                        <input id= 'sell_range_bis' type="number" name="sell_range_bis" min="1" max="1000" value="1000">
-                        <span class="validity"></span>
-
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">von</span>
+                            <input id= 'sell_range_von' type="number" name="sell_range_von" min="1" max="1000" value="1">
+                            <span class="validity"></span>
+                            <br><br>
+                            <span class="input-group-text">bis</span>
+                            <input id= 'sell_range_bis' type="number" name="sell_range_bis" min="1" max="1000" value="1000">
+                            <span class="validity"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -509,26 +512,29 @@
                 <div class="col-sm-6">
                     <h3>Stoploss Buy range </h3>
                     <div class="form-group form-inline row">
-                        <label for="buy_stoplos_von">von </label>
-                        <input id= 'buy_stoplos_von' type="number" name="buy_stoplos_von" min="1" max="1000" value="1">
-                        <span class="validity"></span>
-                        <br><br>
-                        <label for="buy_stoplos_bis">bis </label>
-                        <input id= 'buy_stoplos_bis' type="number" name="buy_stoplos_bis" min="1" max="1000" value="1000">
-                        <span class="validity"></span>
-
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">von</span>
+                            <input id= 'buy_stoplos_von' type="number" name="buy_stoplos_von" min="1" max="1000" value="1">
+                            <span class="validity"></span>
+                            <br><br>
+                            <span class="input-group-text">bis</span>
+                            <input id= 'buy_stoplos_bis' type="number" name="buy_stoplos_bis" min="1" max="1000" value="1000">
+                            <span class="validity"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <h3> Stoploss Sell range </h3>
                     <div class="form-group form-inline row">
-                        <label for="sell_stoplos_von">von </label>
-                        <input id= 'sell_stoplos_von' type="number" name="sell_stoplos_von" min="1" max="1000"  value="1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">von</span>
+                            <input id= 'sell_stoplos_von' type="number" name="sell_stoplos_von" min="1" max="1000"  value="1"  required="">
+                            <span class="validity"></span>
+                            <br><br>
+                            <span class="input-group-text">bis</span>
+                        <input id= 'sell_stoplos_bis' type="number" name="sell_stoplos_bis" min="1" max="1000" value="1000"  required="" placeholder="" class="form-control">
                         <span class="validity"></span>
-                        <br><br>
-                        <label for="sell_stoplos_bis">bis </label>
-                        <input id= 'sell_stoplos_bis' type="number" name="sell_stoplos_bis" min="1" max="1000" value="1000" >
-                        <span class="validity"></span>
+                        </div>
 
                     </div>
                 </div>
@@ -536,17 +542,18 @@
             <div class="row">
                 <div class="col-sm-6">
                     <h3> Enter your Email adress please </h3>
-                    <div class="form-group form-inline row">
-                        <label for="email_input">Email :</label>
-                        <input type="email" id="email_input" name="email_input" value="uu4axvkbuwdxcapx@ethereal.email" >
-                        <span class="validity"></span>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                        <input id="email_input" value="uu4axvkbuwdxcapx@ethereal.email" type="email" name="email_input" class="form-control" id="username" placeholder="Username" required="">
                     </div>
+
                 </div>
             </div>
 
             <!--<input type="submit" class="btn" id="findStrategieBtn" onclick="(function() {
               require('./Javascript/handleSubmit').handleSubmit()})()" value="Find Strategie" />-->
-            <input type="submit" class="btn" id="findStrategieBtn" onclick="handleSubmit()" value="Find Strategie" />
+
+            <input type="submit" class="btn" id="findStrategieBtn" size="500" maxlength="100000" onclick="handleSubmit()" value="Find Strategie" />
         </form>
         <script language="JavaScript" type="text/javascript" src="..\Javascript\Essentials.js"></script>
         <script language="JavaScript" type="text/javascript" src="..\Javascript\display.js"></script>
