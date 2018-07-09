@@ -1,3 +1,20 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,544 +39,545 @@
 
 </head>
 <body>
-    <br>
+<br>
 <div class="jumbotron text-center container">
     <h1>Trading Bot Page</h1>
 </div>
 
-    <div id="failure" ></div>
-    <div id="botIsRunning"></div>
+<div id="failure" ></div>
+<div id="botIsRunning"></div>
 
-<div id="DataConfig">
-    <div class="alert alert-success container"><h3>Data Configuration</h3> </div>
-    <div class="container">
+<div class="container">
+    <div id="DataConfig">
+        <div class="alert alert-success container"><h3>Data Configuration</h3> </div>
         <form id="form" method="post"  enctype="application/json" onsubmit="return handleSubmit()">
-            <div class="grid_2">
-                <h6>Symbol</h6>
-                <select id="m" name="m" class="input" >
-                    <optgroup label="ARS">
-                        <option value="localbtcARS">LocalBitcoins (ARS)</option>
-                        <option value="thARS">TradeHill (ARS)</option>
-                    </optgroup>
-                    <optgroup label="AUD">
-                        <option value="anxhkAUD">ANX (AUD)</option>
-                        <option value="bcmBMAUD">Bitcoin Market (AUD)</option>
-                        <option value="bitmarketAUD">BitMarket.eu (AUD)</option>
-                        <option value="btcmarketsAUD">btcmarkets (AUD)</option>
-                        <option value="cryptoxAUD">Crypto X Change (AUD)</option>
-                        <option value="localbtcAUD">LocalBitcoins (AUD)</option>
-                        <option value="mtgoxAUD">Mt. Gox (AUD)</option>
-                        <option value="ruxumAUD">Ruxum (AUD)</option>
-                        <option value="thAUD">TradeHill (AUD)</option>
-                        <option value="wbxAUD">World Bitcoin Exchange (AUD)</option>
-                        <option value="weexAUD">WeExchange (AUD)</option>
-                    </optgroup>
-                    <optgroup label="BRL">
-                        <option value="bbmBRL">Brasil Bitcoin Market (BRL)</option>
-                        <option value="btc2uBRL">BITCOIN TO YOU (BRL)</option>
-                        <option value="foxbitBRL">FoxBit (BRL)</option>
-                        <option value="localbtcBRL">LocalBitcoins (BRL)</option>
-                        <option value="mrcdBRL">Mercado Bitcoin (BRL)</option>
-                        <option value="omnitradeBRL">OmniTrade (BRL)</option>
-                        <option value="thBRL">TradeHill (BRL)</option>
-                    </optgroup>
-                    <optgroup label="BTC">
-                        <option value="coinnestKRW">Coinnest (BTC)</option>
-                    </optgroup>
-                    <optgroup label="CAD">
-                        <option value="anxhkCAD">ANX (CAD)</option>
-                        <option value="bitaloCAD">Bitalo (CAD)</option>
-                        <option value="coinbaseCAD">Coinbase (CAD)</option>
-                        <option value="krakenCAD">Kraken (CAD)</option>
-                        <option value="localbtcCAD">LocalBitcoins (CAD)</option>
-                        <option value="lybitCAD">LibertyBit (CAD)</option>
-                        <option value="mtgoxCAD">Mt. Gox (CAD)</option>
-                        <option value="thCAD">TradeHill (CAD)</option>
-                        <option value="virtexCAD">Canadian Virtual Exchange (CAD)</option>
-                        <option value="weexCAD">WeExchange (CAD)</option>
-                    </optgroup>
-                    <optgroup label="CHF">
-                        <option value="anxhkCHF">ANX (CHF)</option>
-                        <option value="localbtcCHF">LocalBitcoins (CHF)</option>
-                        <option value="mtgoxCHF">Mt. Gox (CHF)</option>
-                        <option value="ruxumCHF">Ruxum (CHF)</option>
-                        <option value="thCHF">TradeHill (CHF)</option>
-                    </optgroup>
-                    <optgroup abel="CLP">
-                        <option value="chilebitCLP">ChileBit (CLP)</option>
-                        <option value="thCLP">TradeHill (CLP)</option>
-                    </optgroup>
-                    <optgroup label="CNY">
-                        <option value="anxhkCNY">ANX (CNY)</option>
-                        <option value="btcnCNY">BTC China (CNY)</option>
-                        <option value="btctradeCNY">BtcTrade (CNY)</option>
-                        <option value="chbtcCNY">CHBTC (CNY)</option>
-                        <option value="jubiCNY">Jubi (CNY)</option>
-                        <option value="mtgoxCNY">Mt. Gox (CNY)</option>
-                        <option value="rmbtbCNY">RMBTB (CNY)</option>
-                        <option value="thCNY">TradeHill (CNY)</option>
-                    </optgroup>
-                    <optgroup label="CZK">
-                        <option value="bitcashCZK">Bitcash.cz (CZK)</option>
-                        <option value="bitstockCZK">BitStock (CZK)</option>
-                        <option value="localbtcCZK">LocalBitcoins (CZK)</option>
-                        <option value="thCZK">TradeHill (CZK)</option>
-                    </optgroup>
-                    <optgroup label="DKK">
-                        <option value="localbtcDKK">LocalBitcoins (DKK)</option>
-                        <option value="mtgoxDKK">Mt. Gox (DKK)</option>
-                        <option value="thDKK">TradeHill (DKK)</option>
-                    </optgroup>
-                    <optgroup label="EUR">
-                        <option value="abucoinsEUR">Abucoins (EUR)</option>
-                        <option value="anxhkEUR">ANX (EUR)</option>
-                        <option value="aqoinEUR">aqoin (EUR)</option>
-                        <option value="b7EUR">Bitcoin7 (EUR)</option>
-                        <option value="bcEUR">Paymium (EUR)</option>
-                        <option value="bitaloEUR">Bitalo (EUR)</option>
-                        <option value="bitbayEUR">BitBay (EUR)</option>
-                        <option value="bitcurexEUR">Bitcurex (EUR)</option>
-                        <option value="bitmarketEUR">BitMarket.net (EUR)</option>
-                        <option value="bitstampEUR">Bitstamp (EUR)</option>
-                        <opion value="btc24EUR">Bitcoin-24.com (EUR)</opion>
-                        <option value="btcdeEUR">bitcoin.de (EUR)</option>
-                        <option value="btceEUR">btc·e (EUR)</option>
-                        <option value="btceurEUR">Bitcoin Euro Exchange (EUR)</option>
-                        <option value="btcexEUR">btcex.com (EUR)</option>
-                        <option value="btcxEUR">BTC-X (EUR)</option>
-                        <option value="cexEUR">CEX.IO (EUR)</option>
-                        <option value="coinbaseEUR">GDAX (EUR)</option>
-                        <option value="coinfalconEUR">CoinFalcon (EUR)</option>
-                        <option value="coinsbankEUR">CoinsBank (EUR)</option>
-                        <option value="crytrEUR">Crypto-Trade (EUR)</option>
-                        <option value="exmoEUR">EXMO (EUR)</option>
-                        <option value="fbtcEUR">FBTC Exchange (EUR)</option>
-                        <option value="freshEUR">FreshBTC (EUR)</option>
-                        <option value="globalEUR">Global Bitcoin Exchange (EUR)</option>
-                        <option value="hitbtcEUR">hitbtc (EUR)</option>
-                        <option value="ibwtEUR">IBWT (EUR)</option>
-                        <option value="imcexEUR">IMCEX.COM (EUR)</option>
-                        <option value="intrsngEUR">Intersango (EUR)</option>
-                        <option value="itbitEUR">itBit (EUR)</option>
-                        <option value="justEUR">Justcoin (EUR)</option>
-                        <option value="krakenEUR">Kraken (EUR)</option>
-                        <option value="localbtcEUR">LocalBitcoins (EUR)</option>
-                        <option value="mtgoxEUR">Mt. Gox (EUR)</option>
-                        <option value="rippleEUR">Ripple (EUR)</option>
-                        <option value="rockEUR">The Rock Trading (EUR)</option>
-                        <option value="ruxumEUR">Ruxum (EUR)</option>
-                        <option value="thEUR">TradeHill (EUR)</option>
-                        <option value="vcxEUR">Vircurex (EUR)</option>
-                        <option value="wexEUR">WEX (EUR)</option>
-                        <option value="zyadoEUR">zyado (EUR)</option>
-                    </optgroup>
-                    <optgroup label="GAU">
-                        <option value="bcmBMGAU">Bitcoin Market (GAU)</option>
-                        <option value="bcmPXGAU">Bitcoin Market (GAU)</option>
-                    </optgroup>
-                    <optgroup label="GBP">
-                        <option value="anxhkGBP">ANX (GBP)</option>
-                        <option value="bcGBP">Bitcoin Central (GBP)</option>
-                        <option value="bit121GBP">bit121 (GBP)</option>
-                        <option value="bitaloGBP">Bitalo (GBP)</option>
-                        <option value="bitmarketGBP">BitMarket.eu (GBP)</option>
-                        <option value="britcoinGBP">Britcoin (GBP)</option>
-                        <option value="coinbaseGBP">GDAX (GBP)</option>
-                        <option value="coinfloorGBP">Coinfloor (GBP)</option>
-                        <option value="coinsbankGBP">CoinsBank (GBP)</option>
-                        <option value="globalGBP">Global Bitcoin Exchange (GBP)</option>
-                        <option value="ibwtGBP">IBWT (GBP)</option>
-                        <option value="intrsngGBP">Intersango (GBP)</option>
-                        <option value="krakenGBP">Kraken (GBP)</option>
-                        <option value="localbtcGBP">LocalBitcoins (GBP)</option>
-                        <option value="mtgoxGBP">Mt. Gox (GBP)</option>
-                        <option value="ruxumGBP">Ruxum (GBP)</option>
-                        <option value="thGBP">TradeHill (GBP)</option>
-                    </optgroup>
-                    <optgroup label="HKD">
-                        <option value="anxhkHKD">ANX (HKD)</option>
-                        <option value="btchkexHKD">Bitcoin HK Exchange (HKD)</option>
-                        <option value="localbtcHKD">LocalBitcoins (HKD)</option>
-                        <option value="mtgoxHKD">Mt. Gox (HKD)</option>
-                        <option value="ruxumHKD">Ruxum (HKD)</option>
-                        <option value="thHKD">TradeHill (HKD)</option>
-                    </optgroup>
-                    <optgroup label="HUF">
-                        <option value="ruxumHUF">Ruxum (HUF)</option>
-                    </optgroup>
-                    <optgroup label="IDR">
-                        <option value="bitxIDR">BitX (IDR)</option>
-                        <option value="btcoidIDR">bitcoin.co.id (IDR)</option>
-                    </optgroup>
-                    <optgroup label="ILS">
-                        <option value="bit2cILS">Bit2C (ILS)</option>
-                        <option value="localbtcILS">LocalBitcoins (ILS)</option>
-                        <option value="thILS">TradeHill (ILS)</option>
-                    </optgroup>
-                    <optgroup label="INR">
-                        <option value="localbtcINR">LocalBitcoins (INR)</option>
-                        <option value="thINR">TradeHill (INR)</option>
-                    </optgroup>
-                    <optgroup label="JPY">
-                        <option value="anxhkJPY">ANX (JPY)</option>
-                        <option value="bitflyerJPY">bitFlyer (JPY)</option>
-                        <option value="btcboxJPY">BTCBOX (JPY)</option>
-                        <option value="btcexJPY">btcex.com (JPY)</option>
-                        <option value="coincheckJPY">coincheck (JPY)</option>
-                        <option value="fiscoJPY">Fisco (JPY)</option>
-                        <option value="krakenJPY">Kraken (JPY)</option>
-                        <option value="mtgoxJPY">Mt. Gox (JPY)</option>
-                        <option value="ruxumJPY">Ruxum (JPY)</option>
-                        <option value="thJPY">TradeHill (JPY)</option>
-                        <option value="zaifJPY">Zaif (JPY)</option>
-                    </optgroup>
-                    <optgroup label="KRW">
-                        <option value="korbitKRW">Korbit (KRW)</option>
-                        <option value="krakenKRW">Kraken (KRW)</option>
-                    </optgroup>
-                    <optgroup label="LTC">
-                        <option value="bitmeLTC">bitme (LTC)</option>
-                        <option value="ibwtLTC">IBWT (LTC)</option>
-                        <option value="justLTC">Justcoin (LTC)</option>
-                        <option value="krakenLTC">Kraken (LTC)</option>
-                    </optgroup>
-                    <optgroup label="MXN">
-                        <option value="bitsoMXN">Bitso (MXN)</option>
-                        <option value="localbtcMXN">LocalBitcoins (MXN)</option>
-                        <option value="thMXN">TradeHill (MXN)</option>
-                    </optgroup>
-                    <optgroup label="MYR">
-                        <option value="bitxMYR">BitX (MYR)</option>
-                    </optgroup>
-                    <optgroup label="NGN">
-                        <option value="bitxNGN">BitX (NGN)</option>
-                    </optgroup>
-                    <optgroup label="NMC">
-                        <option value="krakenNMC">Kraken (NMC)</option>
-                    </optgroup>
-                    <optgroup label="NOK">
-                        <option value="bcnorwayNOK">Bitcoins Norway (NOK)</option>
-                        <option value="justNOK">Justcoin (NOK)</option>
-                        <option value="localbtcNOK">LocalBitcoins (NOK)</option>
-                        <option value="mtgoxNOK">Mt. Gox (NOK)</option>
-                        <option value="thNOK">TradeHill (NOK)</option>
-                    </optgroup>
-                    <optgroup label="NZD">
-                        <option value="anxhkNZD">ANX (NZD)</option>
-                        <option value="bitnzNZD">bitNZ (NZD)</option>
-                        <option value="localbtcNZD">LocalBitcoins (NZD)</option>
-                        <option value="mtgoxNZD">Mt. Gox (NZD)</option>
-                        <option value="thNZD">TradeHill (NZD)</option>
-                    </optgroup>
-                    <optgroup label="PEN">
-                        <option value="thPEN">TradeHill (PEN)</option>
-                    </optgroup>
-                    <optgroup label="PKR">
-                        <option value="urdubitPKR">Urdubit (PKR)</option>
-                    </optgroup>
-                    <optgroup label="PLN">
-                        <option value="abucoinsPLN">Abucoins (PLN)</option>
-                        <option value="bidxtrmPLN">bid extreme (PLN)</option>
-                        <option value="bitaloPLN">Bitalo (PLN)</option>
-                        <option value="bitbayPLN">BitBay (PLN)</option>
-                        <option value="bitchangePLN">Bitchange.pl (PLN)</option>
-                        <option value="bitcurexPLN">Bitcurex (PLN)</option>
-                        <option value="bitmarketPLN">BitMarket.net (PLN)</option>
-                        <option value="bitmaszynaPLN">Bitmaszyna (PLN)</option>
-                        <option value="bitomatPLN">bitomat.pl (PLN)</option>
-                        <option value="fluctoPLN">Flucto (PLN)</option>
-                        <option value="freshPLN">FreshBTC (PLN)</option>
-                        <option value="globalPLN">Global Bitcoin Exchange (PLN)</option>
-                        <option value="intrsngPLN">Intersango (PLN)</option>
-                        <option value="localbtcPLN">LocalBitcoins (PLN)</option>
-                        <option value="mtgoxPLN">Mt. Gox (PLN)</option>
-                        <option value="nevbitPLN">NevBit (PLN)</option>
-                        <option value="ruxumPLN">Ruxum (PLN)</option>
-                        <option value="thPLN">TradeHill (PLN)</option>
-                    </optgroup>
-                    <optgroup label="RON">
-                        <option value="btcxchangeRON">BTCXchange (RON)</option>
-                    </optgroup>
-                    <optgroup label="RUB">
-                        <option value="bitmarketRUB">BitMarket.eu (RUB)</option>
-                        <option value="btceRUR">btc·e (RUB)</option>
-                        <option value="btcexRUB">btcex.com (RUB)</option>
-                        <option value="btcexWMR">btcex.com (RUB)</option>
-                        <option value="btcexYAD">btcex.com (RUB)</option>
-                        <option value="cexRUB">CEX.IO (RUB)</option>
-                        <option value="exmoRUB">EXMO (RUB)</option>
-                        <option value="imcexRUB">IMCEX.COM (RUB)</option>
-                        <option value="localbtcRUB">LocalBitcoins (RUB)</option>
-                        <option value="mtgoxRUB">Mt. Gox (RUB)</option>
-                        <option value="ruxumRUB">Ruxum (RUB)</option>
-                        <option value="wexRUB">WEX (RUB)</option>
-                    </optgroup>
-                    <optgroup label="SEK">
-                        <option value="fybseSEK">FYB-SE (SEK)</option>
-                        <option value="kptnSEK">Kapiton (SEK)</option>
-                        <option value="localbtcSEK">LocalBitcoins (SEK)</option>
-                        <option value="mtgoxSEK">Mt. Gox (SEK)</option>
-                        <option value="ruxumSEK">Ruxum (SEK)</option>
-                        <option value="thSEK">TradeHill (SEK)</option>
-                    </optgroup>
-                    <optgroup label="SGD">
-                        <option value="anxhkSGD">ANX (SGD)</option>
-                        <option value="fybsgSGD">FYB-SG (SGD)</option>
-                        <option value="itbitSGD">itBit (SGD)</option>
-                        <option value="localbtcSGD">LocalBitcoins (SGD)</option>
-                        <option value="mtgoxSGD">Mt. Gox (SGD)</option>
-                        <option value="ruxumSGD">Ruxum (SGD)</option>
-                    </optgroup>
-                    <optgroup label="SLL">
-                        <option value="rockSLL">The Rock Trading (SLL)</option>
-                        <option value="virwoxSLL">VirWox (SLL)</option>
-                    </optgroup>
-                    <optgroup label="THB">
-                        <option value="localbtcTHB">LocalBitcoins (THB)</option>
-                        <option value="mtgoxTHB">Mt. Gox (THB)</option>
-                        <option value="ruxumTHB">Ruxum (THB)</option>
-                    </optgroup>
-                    <optgroup label="UAH">
-                        <option value="ruxumUAH">Ruxum (UAH)</option>
-                    </optgroup>
-                    <optgroup label="USD">
-                        <option value="1coinUSD">1coin (USD)</option>
-                        <option value="abucoinsUSD">Abucoins (USD)</option>
-                        <option value="allcoinUSD">Allcoin (USD)</option>
-                        <option value="anxhkUSD">ANX (USD)</option>
-                        <option value="b2cUSD">Bitcoin2Cash (USD)</option>
-                        <option value="b7USD">Bitcoin7 (USD)</option>
-                        <option value="bcmBMUSD">Bitcoin Market (USD)</option>
-                        <option value="bcmLRUSD">Bitcoin Market (USD)</option>
-                        <option value="bcmMBUSD">Bitcoin Market (USD)</option>
-                        <option value="bcmMLUSD">Bitcoin Market (USD)</option>
-                        <option value="bcmPPUSD">Bitcoin Market (USD)</option>
-                        <option value="bitaloUSD">Bitalo (USD)</option>
-                        <option value="bitbayUSD">BitBay (USD)</option>
-                        <option value="bitboxUSD">BitBox (USD)</option>
-                        <option value="bitcurexUSD"> Bitcurex (USD)</option>
-                        <option value="bitfinexUSD">Bitfinex (USD)</option>
-                        <option value="bitfloorUSD">bitfloor (USD)</option>
-                        <option value="bitflyerUSD">bitFlyer (USD)</option>
-                        <option value="bitkonanUSD">bitKonan (USD)</option>
-                        <option value="bitmarketUSD">BitMarket.eu (USD)</option>
-                        <option value="bitmeUSD">bitme (USD)</option>
-                        <option value="bitstampUSD" selected>BitStamp (USD)</option>
-                        <option value="btc24USD">Bitcoin-24.com (USD)</option>
-                        <option value="btcalphaUSD">BTC-Alpha (USD)</option>
-                        <option value="btccUSD">BTCC (USD)</option>
-                        <option value="btceUSD">btc·e (USD)</option>
-                        <option value="btcexUSD">btcex.com (USD)</option>
-                        <option value="btcexWMZ">btcex.com (USD)</option>
-                        <option value="btctreeUSD">BtcTree.com (USD)</option>
-                        <option value="btcxUSD">BTC-X (USD)</option>
-                        <option value="cbxUSD">Camp BX (USD)</option>
-                        <option value="cexUSD">CEX.IO (USD)</option>
-                        <option value="coinbaseUSD">GDAX (USD)</option>
-                        <option value="coinsbankUSD">CoinsBank (USD)</option>
-                        <option value="cotrUSD">CoinTrader (USD)</option>
-                        <option value="cryptoxUSD">Crypto X Change (USD)</option>
-                        <option value="crytrUSD">Crypto-Trade (USD)</option>
-                        <option value="exchbUSD">ExchangeBitcoins.com (USD)</option>
-                        <option value="exmoUSD">EXMO (USD)</option>
-                        <option value="fbtcUSD">FBTC Exchange (USD)</option>
-                        <option value="freshUSD">FreshBTC (USD)</option>
-                        <option value="getbtcUSD">GetBTC (USD)</option>
-                        <option value="globalUSD">Global Bitcoin Exchange (USD)</option>
-                        <option value="hitbtcUSD">hitbtc (USD)</option>
-                        <option value="ibwtUSD">IBWT (USD)</option>
-                        <option value="imcexUSD">IMCEX.COM (USD)</option>
-                        <option value="indacoinUSD">Indacoin (USD)</option>
-                        <option value="intrsngUSD">Intersango (USD)</option>
-                        <option value="itbitUSD">itBit (USD)</option>
-                        <option value="justUSD">Justcoin (USD)</option>
-                        <option value="krakenUSD">Kraken (USD)</option>
-                        <option value="lakeUSD">LakeBTC.com (USD)</option>
-                        <option value="localbtcUSD">LocalBitcoins (USD)</option>
-                        <option value="lybitUSD">LibertyBit (USD)</option>
-                        <option value="mtgoxUSD">Mt. Gox (USD)</option>
-                        <option value="okcoinUSD">OKCoin (USD)</option>
-                        <option value="rippleUSD">Ripple (USD)</option>
-                        <option value="rockUSD">The Rock Trading (USD)</option>
-                        <option value="ruxumUSD">Ruxum (USD)</option>
-                        <option value="thLRUSD">TradeHill (USD)</option>
-                        <option value="thUSD">TradeHill (USD)</option>
-                        <option value="vcxUSD">Vircurex (USD)</option>
-                        <option value="weexUSD">WeExchange (USD)</option>
-                        <option value="wexUSD">WEX (USD)</option>
-                    </optgroup>
-                    <optgroup label="VEF">
-                        <option value="localbtcVEF">LocalBitcoins (VEF)</option>
-                        <option value="surbtcVEF">SurBitcoin (VEF)</option>
-                    </optgroup>
-                    <optgroup label="VND">
-                        <option value="localbtcVND">LocalBitcoins (VND)</option>
-                        <option value="remitanoVND">Remitano (VND)</option>
-                        <option value="vbtcVND">VBTC (VND)</option>
-                    </optgroup>
-                    <optgroup abel="XRP">
-                        <option value="jstXRP">Justcoin (XRP)</option>
-                        <option value="krakenXRP">Kraken (XRP)</option>
-                        <option value="rippleXRP">Ripple (XRP)</option>
-                        <option value="snwcnXRP">Snowcoin (XRP)</option>
-                    </optgroup>
-                    <optgroup label="ZAR">
-                        <option value="bitxZAR">BitX (ZAR)</option>
-                        <option value="localbtcZAR">LocalBitcoins (ZAR)</option>
-                        <option value="ruxumZAR">Ruxum (ZAR)</option>
-                        <option value="thZAR">TradeHill (ZAR)</option>
-                    </optgroup>
-                </select>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <h4>Time Period</h4>
-                    <select id="r" name="r" class="input" style="width:70px;">
-                        <option value="1">1 day</option>
-                        <option value="2">2 days</option>
-                        <option value="5">5 days</option>
-                        <option value="10">10 days</option>
-                        <option value="30">1 month</option>
-                        <option value="60" selected>2 months</option>
-                        <option value="90">3 months</option>
-                        <option value="120">4 months</option>
-                        <option value="150">5 months</option>
-                        <option value="180">6 months</option>
-                        <option value="360">1 year</option>
-                        <option value="730">2 years</option>
-                        <option value="1460">4 years</option>
-                        <option value="2920">8 years</option>
-                        <option value="">All Data</option>
-                    </select>
-                </div>
-                <div class="col-sm-6">
-                    <h4>Choose an Interval</h4>
-                    <!--  Auswahlfeld  -->
-                    <div class="form-group form-inline row">
-                        <select id="i" name="i" class="input" style="width:60px;">
-                            <option value="">auto</option>
-                            <option value="1-min">1-min</option>
-                            <option value="5-min">5-min</option>
-                            <option value="15-min">15-min</option>
-                            <option value="30-min">30-min</option>
-                            <option value="Hourly">Hourly</option>
-                            <option value="2-hour">2-hour</option>
-                            <option value="6-hour">6-hour</option>
-                            <option value="12-hour">12-hour</option>
-                            <option value="Daily">Daily</option>
-                            <option value="Weekly">Weekly</option>
+            <div class = "row">
+                <div class="col-md-6 order-md-1">
+                    <div class="mb-3">
+                        <h6>Symbol</h6>
+                        <select id="m" name="m" class="input" >
+                            <optgroup label="ARS">
+                                <option value="localbtcARS">LocalBitcoins (ARS)</option>
+                                <option value="thARS">TradeHill (ARS)</option>
+                            </optgroup>
+                            <optgroup label="AUD">
+                                <option value="anxhkAUD">ANX (AUD)</option>
+                                <option value="bcmBMAUD">Bitcoin Market (AUD)</option>
+                                <option value="bitmarketAUD">BitMarket.eu (AUD)</option>
+                                <option value="btcmarketsAUD">btcmarkets (AUD)</option>
+                                <option value="cryptoxAUD">Crypto X Change (AUD)</option>
+                                <option value="localbtcAUD">LocalBitcoins (AUD)</option>
+                                <option value="mtgoxAUD">Mt. Gox (AUD)</option>
+                                <option value="ruxumAUD">Ruxum (AUD)</option>
+                                <option value="thAUD">TradeHill (AUD)</option>
+                                <option value="wbxAUD">World Bitcoin Exchange (AUD)</option>
+                                <option value="weexAUD">WeExchange (AUD)</option>
+                            </optgroup>
+                            <optgroup label="BRL">
+                                <option value="bbmBRL">Brasil Bitcoin Market (BRL)</option>
+                                <option value="btc2uBRL">BITCOIN TO YOU (BRL)</option>
+                                <option value="foxbitBRL">FoxBit (BRL)</option>
+                                <option value="localbtcBRL">LocalBitcoins (BRL)</option>
+                                <option value="mrcdBRL">Mercado Bitcoin (BRL)</option>
+                                <option value="omnitradeBRL">OmniTrade (BRL)</option>
+                                <option value="thBRL">TradeHill (BRL)</option>
+                            </optgroup>
+                            <optgroup label="BTC">
+                                <option value="coinnestKRW">Coinnest (BTC)</option>
+                            </optgroup>
+                            <optgroup label="CAD">
+                                <option value="anxhkCAD">ANX (CAD)</option>
+                                <option value="bitaloCAD">Bitalo (CAD)</option>
+                                <option value="coinbaseCAD">Coinbase (CAD)</option>
+                                <option value="krakenCAD">Kraken (CAD)</option>
+                                <option value="localbtcCAD">LocalBitcoins (CAD)</option>
+                                <option value="lybitCAD">LibertyBit (CAD)</option>
+                                <option value="mtgoxCAD">Mt. Gox (CAD)</option>
+                                <option value="thCAD">TradeHill (CAD)</option>
+                                <option value="virtexCAD">Canadian Virtual Exchange (CAD)</option>
+                                <option value="weexCAD">WeExchange (CAD)</option>
+                            </optgroup>
+                            <optgroup label="CHF">
+                                <option value="anxhkCHF">ANX (CHF)</option>
+                                <option value="localbtcCHF">LocalBitcoins (CHF)</option>
+                                <option value="mtgoxCHF">Mt. Gox (CHF)</option>
+                                <option value="ruxumCHF">Ruxum (CHF)</option>
+                                <option value="thCHF">TradeHill (CHF)</option>
+                            </optgroup>
+                            <optgroup abel="CLP">
+                                <option value="chilebitCLP">ChileBit (CLP)</option>
+                                <option value="thCLP">TradeHill (CLP)</option>
+                            </optgroup>
+                            <optgroup label="CNY">
+                                <option value="anxhkCNY">ANX (CNY)</option>
+                                <option value="btcnCNY">BTC China (CNY)</option>
+                                <option value="btctradeCNY">BtcTrade (CNY)</option>
+                                <option value="chbtcCNY">CHBTC (CNY)</option>
+                                <option value="jubiCNY">Jubi (CNY)</option>
+                                <option value="mtgoxCNY">Mt. Gox (CNY)</option>
+                                <option value="rmbtbCNY">RMBTB (CNY)</option>
+                                <option value="thCNY">TradeHill (CNY)</option>
+                            </optgroup>
+                            <optgroup label="CZK">
+                                <option value="bitcashCZK">Bitcash.cz (CZK)</option>
+                                <option value="bitstockCZK">BitStock (CZK)</option>
+                                <option value="localbtcCZK">LocalBitcoins (CZK)</option>
+                                <option value="thCZK">TradeHill (CZK)</option>
+                            </optgroup>
+                            <optgroup label="DKK">
+                                <option value="localbtcDKK">LocalBitcoins (DKK)</option>
+                                <option value="mtgoxDKK">Mt. Gox (DKK)</option>
+                                <option value="thDKK">TradeHill (DKK)</option>
+                            </optgroup>
+                            <optgroup label="EUR">
+                                <option value="abucoinsEUR">Abucoins (EUR)</option>
+                                <option value="anxhkEUR">ANX (EUR)</option>
+                                <option value="aqoinEUR">aqoin (EUR)</option>
+                                <option value="b7EUR">Bitcoin7 (EUR)</option>
+                                <option value="bcEUR">Paymium (EUR)</option>
+                                <option value="bitaloEUR">Bitalo (EUR)</option>
+                                <option value="bitbayEUR">BitBay (EUR)</option>
+                                <option value="bitcurexEUR">Bitcurex (EUR)</option>
+                                <option value="bitmarketEUR">BitMarket.net (EUR)</option>
+                                <option value="bitstampEUR">Bitstamp (EUR)</option>
+                                <opion value="btc24EUR">Bitcoin-24.com (EUR)</opion>
+                                <option value="btcdeEUR">bitcoin.de (EUR)</option>
+                                <option value="btceEUR">btc·e (EUR)</option>
+                                <option value="btceurEUR">Bitcoin Euro Exchange (EUR)</option>
+                                <option value="btcexEUR">btcex.com (EUR)</option>
+                                <option value="btcxEUR">BTC-X (EUR)</option>
+                                <option value="cexEUR">CEX.IO (EUR)</option>
+                                <option value="coinbaseEUR">GDAX (EUR)</option>
+                                <option value="coinfalconEUR">CoinFalcon (EUR)</option>
+                                <option value="coinsbankEUR">CoinsBank (EUR)</option>
+                                <option value="crytrEUR">Crypto-Trade (EUR)</option>
+                                <option value="exmoEUR">EXMO (EUR)</option>
+                                <option value="fbtcEUR">FBTC Exchange (EUR)</option>
+                                <option value="freshEUR">FreshBTC (EUR)</option>
+                                <option value="globalEUR">Global Bitcoin Exchange (EUR)</option>
+                                <option value="hitbtcEUR">hitbtc (EUR)</option>
+                                <option value="ibwtEUR">IBWT (EUR)</option>
+                                <option value="imcexEUR">IMCEX.COM (EUR)</option>
+                                <option value="intrsngEUR">Intersango (EUR)</option>
+                                <option value="itbitEUR">itBit (EUR)</option>
+                                <option value="justEUR">Justcoin (EUR)</option>
+                                <option value="krakenEUR">Kraken (EUR)</option>
+                                <option value="localbtcEUR">LocalBitcoins (EUR)</option>
+                                <option value="mtgoxEUR">Mt. Gox (EUR)</option>
+                                <option value="rippleEUR">Ripple (EUR)</option>
+                                <option value="rockEUR">The Rock Trading (EUR)</option>
+                                <option value="ruxumEUR">Ruxum (EUR)</option>
+                                <option value="thEUR">TradeHill (EUR)</option>
+                                <option value="vcxEUR">Vircurex (EUR)</option>
+                                <option value="wexEUR">WEX (EUR)</option>
+                                <option value="zyadoEUR">zyado (EUR)</option>
+                            </optgroup>
+                            <optgroup label="GAU">
+                                <option value="bcmBMGAU">Bitcoin Market (GAU)</option>
+                                <option value="bcmPXGAU">Bitcoin Market (GAU)</option>
+                            </optgroup>
+                            <optgroup label="GBP">
+                                <option value="anxhkGBP">ANX (GBP)</option>
+                                <option value="bcGBP">Bitcoin Central (GBP)</option>
+                                <option value="bit121GBP">bit121 (GBP)</option>
+                                <option value="bitaloGBP">Bitalo (GBP)</option>
+                                <option value="bitmarketGBP">BitMarket.eu (GBP)</option>
+                                <option value="britcoinGBP">Britcoin (GBP)</option>
+                                <option value="coinbaseGBP">GDAX (GBP)</option>
+                                <option value="coinfloorGBP">Coinfloor (GBP)</option>
+                                <option value="coinsbankGBP">CoinsBank (GBP)</option>
+                                <option value="globalGBP">Global Bitcoin Exchange (GBP)</option>
+                                <option value="ibwtGBP">IBWT (GBP)</option>
+                                <option value="intrsngGBP">Intersango (GBP)</option>
+                                <option value="krakenGBP">Kraken (GBP)</option>
+                                <option value="localbtcGBP">LocalBitcoins (GBP)</option>
+                                <option value="mtgoxGBP">Mt. Gox (GBP)</option>
+                                <option value="ruxumGBP">Ruxum (GBP)</option>
+                                <option value="thGBP">TradeHill (GBP)</option>
+                            </optgroup>
+                            <optgroup label="HKD">
+                                <option value="anxhkHKD">ANX (HKD)</option>
+                                <option value="btchkexHKD">Bitcoin HK Exchange (HKD)</option>
+                                <option value="localbtcHKD">LocalBitcoins (HKD)</option>
+                                <option value="mtgoxHKD">Mt. Gox (HKD)</option>
+                                <option value="ruxumHKD">Ruxum (HKD)</option>
+                                <option value="thHKD">TradeHill (HKD)</option>
+                            </optgroup>
+                            <optgroup label="HUF">
+                                <option value="ruxumHUF">Ruxum (HUF)</option>
+                            </optgroup>
+                            <optgroup label="IDR">
+                                <option value="bitxIDR">BitX (IDR)</option>
+                                <option value="btcoidIDR">bitcoin.co.id (IDR)</option>
+                            </optgroup>
+                            <optgroup label="ILS">
+                                <option value="bit2cILS">Bit2C (ILS)</option>
+                                <option value="localbtcILS">LocalBitcoins (ILS)</option>
+                                <option value="thILS">TradeHill (ILS)</option>
+                            </optgroup>
+                            <optgroup label="INR">
+                                <option value="localbtcINR">LocalBitcoins (INR)</option>
+                                <option value="thINR">TradeHill (INR)</option>
+                            </optgroup>
+                            <optgroup label="JPY">
+                                <option value="anxhkJPY">ANX (JPY)</option>
+                                <option value="bitflyerJPY">bitFlyer (JPY)</option>
+                                <option value="btcboxJPY">BTCBOX (JPY)</option>
+                                <option value="btcexJPY">btcex.com (JPY)</option>
+                                <option value="coincheckJPY">coincheck (JPY)</option>
+                                <option value="fiscoJPY">Fisco (JPY)</option>
+                                <option value="krakenJPY">Kraken (JPY)</option>
+                                <option value="mtgoxJPY">Mt. Gox (JPY)</option>
+                                <option value="ruxumJPY">Ruxum (JPY)</option>
+                                <option value="thJPY">TradeHill (JPY)</option>
+                                <option value="zaifJPY">Zaif (JPY)</option>
+                            </optgroup>
+                            <optgroup label="KRW">
+                                <option value="korbitKRW">Korbit (KRW)</option>
+                                <option value="krakenKRW">Kraken (KRW)</option>
+                            </optgroup>
+                            <optgroup label="LTC">
+                                <option value="bitmeLTC">bitme (LTC)</option>
+                                <option value="ibwtLTC">IBWT (LTC)</option>
+                                <option value="justLTC">Justcoin (LTC)</option>
+                                <option value="krakenLTC">Kraken (LTC)</option>
+                            </optgroup>
+                            <optgroup label="MXN">
+                                <option value="bitsoMXN">Bitso (MXN)</option>
+                                <option value="localbtcMXN">LocalBitcoins (MXN)</option>
+                                <option value="thMXN">TradeHill (MXN)</option>
+                            </optgroup>
+                            <optgroup label="MYR">
+                                <option value="bitxMYR">BitX (MYR)</option>
+                            </optgroup>
+                            <optgroup label="NGN">
+                                <option value="bitxNGN">BitX (NGN)</option>
+                            </optgroup>
+                            <optgroup label="NMC">
+                                <option value="krakenNMC">Kraken (NMC)</option>
+                            </optgroup>
+                            <optgroup label="NOK">
+                                <option value="bcnorwayNOK">Bitcoins Norway (NOK)</option>
+                                <option value="justNOK">Justcoin (NOK)</option>
+                                <option value="localbtcNOK">LocalBitcoins (NOK)</option>
+                                <option value="mtgoxNOK">Mt. Gox (NOK)</option>
+                                <option value="thNOK">TradeHill (NOK)</option>
+                            </optgroup>
+                            <optgroup label="NZD">
+                                <option value="anxhkNZD">ANX (NZD)</option>
+                                <option value="bitnzNZD">bitNZ (NZD)</option>
+                                <option value="localbtcNZD">LocalBitcoins (NZD)</option>
+                                <option value="mtgoxNZD">Mt. Gox (NZD)</option>
+                                <option value="thNZD">TradeHill (NZD)</option>
+                            </optgroup>
+                            <optgroup label="PEN">
+                                <option value="thPEN">TradeHill (PEN)</option>
+                            </optgroup>
+                            <optgroup label="PKR">
+                                <option value="urdubitPKR">Urdubit (PKR)</option>
+                            </optgroup>
+                            <optgroup label="PLN">
+                                <option value="abucoinsPLN">Abucoins (PLN)</option>
+                                <option value="bidxtrmPLN">bid extreme (PLN)</option>
+                                <option value="bitaloPLN">Bitalo (PLN)</option>
+                                <option value="bitbayPLN">BitBay (PLN)</option>
+                                <option value="bitchangePLN">Bitchange.pl (PLN)</option>
+                                <option value="bitcurexPLN">Bitcurex (PLN)</option>
+                                <option value="bitmarketPLN">BitMarket.net (PLN)</option>
+                                <option value="bitmaszynaPLN">Bitmaszyna (PLN)</option>
+                                <option value="bitomatPLN">bitomat.pl (PLN)</option>
+                                <option value="fluctoPLN">Flucto (PLN)</option>
+                                <option value="freshPLN">FreshBTC (PLN)</option>
+                                <option value="globalPLN">Global Bitcoin Exchange (PLN)</option>
+                                <option value="intrsngPLN">Intersango (PLN)</option>
+                                <option value="localbtcPLN">LocalBitcoins (PLN)</option>
+                                <option value="mtgoxPLN">Mt. Gox (PLN)</option>
+                                <option value="nevbitPLN">NevBit (PLN)</option>
+                                <option value="ruxumPLN">Ruxum (PLN)</option>
+                                <option value="thPLN">TradeHill (PLN)</option>
+                            </optgroup>
+                            <optgroup label="RON">
+                                <option value="btcxchangeRON">BTCXchange (RON)</option>
+                            </optgroup>
+                            <optgroup label="RUB">
+                                <option value="bitmarketRUB">BitMarket.eu (RUB)</option>
+                                <option value="btceRUR">btc·e (RUB)</option>
+                                <option value="btcexRUB">btcex.com (RUB)</option>
+                                <option value="btcexWMR">btcex.com (RUB)</option>
+                                <option value="btcexYAD">btcex.com (RUB)</option>
+                                <option value="cexRUB">CEX.IO (RUB)</option>
+                                <option value="exmoRUB">EXMO (RUB)</option>
+                                <option value="imcexRUB">IMCEX.COM (RUB)</option>
+                                <option value="localbtcRUB">LocalBitcoins (RUB)</option>
+                                <option value="mtgoxRUB">Mt. Gox (RUB)</option>
+                                <option value="ruxumRUB">Ruxum (RUB)</option>
+                                <option value="wexRUB">WEX (RUB)</option>
+                            </optgroup>
+                            <optgroup label="SEK">
+                                <option value="fybseSEK">FYB-SE (SEK)</option>
+                                <option value="kptnSEK">Kapiton (SEK)</option>
+                                <option value="localbtcSEK">LocalBitcoins (SEK)</option>
+                                <option value="mtgoxSEK">Mt. Gox (SEK)</option>
+                                <option value="ruxumSEK">Ruxum (SEK)</option>
+                                <option value="thSEK">TradeHill (SEK)</option>
+                            </optgroup>
+                            <optgroup label="SGD">
+                                <option value="anxhkSGD">ANX (SGD)</option>
+                                <option value="fybsgSGD">FYB-SG (SGD)</option>
+                                <option value="itbitSGD">itBit (SGD)</option>
+                                <option value="localbtcSGD">LocalBitcoins (SGD)</option>
+                                <option value="mtgoxSGD">Mt. Gox (SGD)</option>
+                                <option value="ruxumSGD">Ruxum (SGD)</option>
+                            </optgroup>
+                            <optgroup label="SLL">
+                                <option value="rockSLL">The Rock Trading (SLL)</option>
+                                <option value="virwoxSLL">VirWox (SLL)</option>
+                            </optgroup>
+                            <optgroup label="THB">
+                                <option value="localbtcTHB">LocalBitcoins (THB)</option>
+                                <option value="mtgoxTHB">Mt. Gox (THB)</option>
+                                <option value="ruxumTHB">Ruxum (THB)</option>
+                            </optgroup>
+                            <optgroup label="UAH">
+                                <option value="ruxumUAH">Ruxum (UAH)</option>
+                            </optgroup>
+                            <optgroup label="USD">
+                                <option value="1coinUSD">1coin (USD)</option>
+                                <option value="abucoinsUSD">Abucoins (USD)</option>
+                                <option value="allcoinUSD">Allcoin (USD)</option>
+                                <option value="anxhkUSD">ANX (USD)</option>
+                                <option value="b2cUSD">Bitcoin2Cash (USD)</option>
+                                <option value="b7USD">Bitcoin7 (USD)</option>
+                                <option value="bcmBMUSD">Bitcoin Market (USD)</option>
+                                <option value="bcmLRUSD">Bitcoin Market (USD)</option>
+                                <option value="bcmMBUSD">Bitcoin Market (USD)</option>
+                                <option value="bcmMLUSD">Bitcoin Market (USD)</option>
+                                <option value="bcmPPUSD">Bitcoin Market (USD)</option>
+                                <option value="bitaloUSD">Bitalo (USD)</option>
+                                <option value="bitbayUSD">BitBay (USD)</option>
+                                <option value="bitboxUSD">BitBox (USD)</option>
+                                <option value="bitcurexUSD"> Bitcurex (USD)</option>
+                                <option value="bitfinexUSD">Bitfinex (USD)</option>
+                                <option value="bitfloorUSD">bitfloor (USD)</option>
+                                <option value="bitflyerUSD">bitFlyer (USD)</option>
+                                <option value="bitkonanUSD">bitKonan (USD)</option>
+                                <option value="bitmarketUSD">BitMarket.eu (USD)</option>
+                                <option value="bitmeUSD">bitme (USD)</option>
+                                <option value="bitstampUSD" selected>BitStamp (USD)</option>
+                                <option value="btc24USD">Bitcoin-24.com (USD)</option>
+                                <option value="btcalphaUSD">BTC-Alpha (USD)</option>
+                                <option value="btccUSD">BTCC (USD)</option>
+                                <option value="btceUSD">btc·e (USD)</option>
+                                <option value="btcexUSD">btcex.com (USD)</option>
+                                <option value="btcexWMZ">btcex.com (USD)</option>
+                                <option value="btctreeUSD">BtcTree.com (USD)</option>
+                                <option value="btcxUSD">BTC-X (USD)</option>
+                                <option value="cbxUSD">Camp BX (USD)</option>
+                                <option value="cexUSD">CEX.IO (USD)</option>
+                                <option value="coinbaseUSD">GDAX (USD)</option>
+                                <option value="coinsbankUSD">CoinsBank (USD)</option>
+                                <option value="cotrUSD">CoinTrader (USD)</option>
+                                <option value="cryptoxUSD">Crypto X Change (USD)</option>
+                                <option value="crytrUSD">Crypto-Trade (USD)</option>
+                                <option value="exchbUSD">ExchangeBitcoins.com (USD)</option>
+                                <option value="exmoUSD">EXMO (USD)</option>
+                                <option value="fbtcUSD">FBTC Exchange (USD)</option>
+                                <option value="freshUSD">FreshBTC (USD)</option>
+                                <option value="getbtcUSD">GetBTC (USD)</option>
+                                <option value="globalUSD">Global Bitcoin Exchange (USD)</option>
+                                <option value="hitbtcUSD">hitbtc (USD)</option>
+                                <option value="ibwtUSD">IBWT (USD)</option>
+                                <option value="imcexUSD">IMCEX.COM (USD)</option>
+                                <option value="indacoinUSD">Indacoin (USD)</option>
+                                <option value="intrsngUSD">Intersango (USD)</option>
+                                <option value="itbitUSD">itBit (USD)</option>
+                                <option value="justUSD">Justcoin (USD)</option>
+                                <option value="krakenUSD">Kraken (USD)</option>
+                                <option value="lakeUSD">LakeBTC.com (USD)</option>
+                                <option value="localbtcUSD">LocalBitcoins (USD)</option>
+                                <option value="lybitUSD">LibertyBit (USD)</option>
+                                <option value="mtgoxUSD">Mt. Gox (USD)</option>
+                                <option value="okcoinUSD">OKCoin (USD)</option>
+                                <option value="rippleUSD">Ripple (USD)</option>
+                                <option value="rockUSD">The Rock Trading (USD)</option>
+                                <option value="ruxumUSD">Ruxum (USD)</option>
+                                <option value="thLRUSD">TradeHill (USD)</option>
+                                <option value="thUSD">TradeHill (USD)</option>
+                                <option value="vcxUSD">Vircurex (USD)</option>
+                                <option value="weexUSD">WeExchange (USD)</option>
+                                <option value="wexUSD">WEX (USD)</option>
+                            </optgroup>
+                            <optgroup label="VEF">
+                                <option value="localbtcVEF">LocalBitcoins (VEF)</option>
+                                <option value="surbtcVEF">SurBitcoin (VEF)</option>
+                            </optgroup>
+                            <optgroup label="VND">
+                                <option value="localbtcVND">LocalBitcoins (VND)</option>
+                                <option value="remitanoVND">Remitano (VND)</option>
+                                <option value="vbtcVND">VBTC (VND)</option>
+                            </optgroup>
+                            <optgroup abel="XRP">
+                                <option value="jstXRP">Justcoin (XRP)</option>
+                                <option value="krakenXRP">Kraken (XRP)</option>
+                                <option value="rippleXRP">Ripple (XRP)</option>
+                                <option value="snwcnXRP">Snowcoin (XRP)</option>
+                            </optgroup>
+                            <optgroup label="ZAR">
+                                <option value="bitxZAR">BitX (ZAR)</option>
+                                <option value="localbtcZAR">LocalBitcoins (ZAR)</option>
+                                <option value="ruxumZAR">Ruxum (ZAR)</option>
+                                <option value="thZAR">TradeHill (ZAR)</option>
+                            </optgroup>
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <h4>Time Period</h4>
+                        <select id="r" name="r" class="input" style="width:70px;">
+                            <option value="1">1 day</option>
+                            <option value="2">2 days</option>
+                            <option value="5">5 days</option>
+                            <option value="10">10 days</option>
+                            <option value="30">1 month</option>
+                            <option value="60" selected>2 months</option>
+                            <option value="90">3 months</option>
+                            <option value="120">4 months</option>
+                            <option value="150">5 months</option>
+                            <option value="180">6 months</option>
+                            <option value="360">1 year</option>
+                            <option value="730">2 years</option>
+                            <option value="1460">4 years</option>
+                            <option value="2920">8 years</option>
+                            <option value="">All Data</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6 order-md-2">
+                    <div class="mb-3">
+                        <h3>Choose an Interval</h3>
+                        <!--  Auswahlfeld  -->
+                        <div class="form-group form-inline row">
+                            <select id="i" name="i" class="input" style="width:60px;">
+                                <option value="">auto</option>
+                                <option value="1-min">1-min</option>
+                                <option value="5-min">5-min</option>
+                                <option value="15-min">15-min</option>
+                                <option value="30-min">30-min</option>
+                                <option value="Hourly">Hourly</option>
+                                <option value="2-hour">2-hour</option>
+                                <option value="6-hour">6-hour</option>
+                                <option value="12-hour">12-hour</option>
+                                <option value="Daily">Daily</option>
+                                <option value="Weekly">Weekly</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="container-fluid alert alert-success">
                 <h3>AI Configuration</h3>
             </div>
-            <div class="row container">
-                <div class="col-sm-6">
-                    <h3>Agenten </h3>
-                    <!--  Auswahlfeld  -->
-                    <div class="form-inline row">
-                        <label for="agentenAnzahl">Anzahl </label>
-                        <input id='agentenAnzahl' type="number" name="agentenAnzahl" min="1000" max="3000" value="1000">
-                        <span class="validity"></span>
-
+            <div class ="row">
+                <!-- culomn 1 -->
+                <div class="col-md-6 order-md-1">
+                    <div class="mb-3">
+                        <h3>Agenten </h3>
+                        <div class="input-group-prepend">
+                            <span for="agentenAnzahl" class="input-group-text">Agenten</span>
+                            <input id='agentenAnzahl' type="number" name="agentenAnzahl" min="1000" max="3000" value="1000">
+                            <span class="col-md-2 validity"></span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <h3>Generationen </h3>
-                    <!--  Auswahlfeld  -->
-                    <div class="form-inline row">
-                        <label for="generationAnzahl">Anzahl </label>
-                        <input type="number" id="generationAnzahl" name="generationAnzahl" min="1" max="10" value="3">
-                        <span class="validity"></span>
-
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3>Buy range </h3>
-                    <div class="form-group form-inline row">
+                    <div class="mb-3">
+                        <h3>Buy range </h3>
                         <div class="input-group-prepend">
                             <span class="input-group-text">von</span>
                             <input id= 'buy_range_von' type="number" name="buy_range_von" min="1" max="1000" value="1">
-                            <span class="validity"></span>
+                            <span class="col-md-2 validity"></span>
                             <br><br>
                             <span class="input-group-text">bis</span>
                             <input id = 'buy_range_bis' type="number" name="buy_range_bis" min="1" max="1000" value="1000" >
-                            <span class="validity"></span>
+                            <span class="col-md-2 validity"></span>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <h3>Sell range </h3>
-                    <div class="form-group form-inline row">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">von</span>
-                            <input id= 'sell_range_von' type="number" name="sell_range_von" min="1" max="1000" value="1">
-                            <span class="validity"></span>
-                            <br><br>
-                            <span class="input-group-text">bis</span>
-                            <input id= 'sell_range_bis' type="number" name="sell_range_bis" min="1" max="1000" value="1000">
-                            <span class="validity"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3>Stoploss Buy range </h3>
-                    <div class="form-group form-inline row">
+                    <div class="mb-3">
+                        <h3>Stoploss Buy range </h3>
                         <div class="input-group-prepend">
                             <span class="input-group-text">von</span>
                             <input id= 'buy_stoplos_von' type="number" name="buy_stoplos_von" min="1" max="1000" value="1">
-                            <span class="validity"></span>
+                            <span class="col-md-2 validity"></span>
                             <br><br>
                             <span class="input-group-text">bis</span>
                             <input id= 'buy_stoplos_bis' type="number" name="buy_stoplos_bis" min="1" max="1000" value="1000">
-                            <span class="validity"></span>
+                            <span class="col-md-2 validity"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <h3> Email </h3>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                            <input id="email_input" value="uu4axvkbuwdxcapx@ethereal.email" type="email" name="email_input" class="form-control" placeholder="Email" required="">
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <h3> Stoploss Sell range </h3>
-                    <div class="form-group form-inline row">
+
+                <!--Column 2-->
+                <div class="col-md-6 order-md-2">
+                    <div class="mb-3">
+                        <h3>Generationen </h3>
+                        <!--  Auswahlfeld  -->
+                        <div class="form-inline">
+                            <div class="input-group-prepend">
+                                <span for="agentenAnzahl" class="input-group-text">Anzahl</span>
+                                <input type="number" id="generationAnzahl" name="generationAnzahl" min="1" max="10" value="3">
+                                <span class="col-md-2 validity"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <h3>Sell range </h3>
                         <div class="input-group-prepend">
                             <span class="input-group-text">von</span>
-                            <input id= 'sell_stoplos_von' type="number" name="sell_stoplos_von" min="1" max="1000"  value="1"  required="">
-                            <span class="validity"></span>
+                            <input id= 'sell_range_von' type="number" name="sell_range_von" min="1" max="1000" value="1">
+                            <span class="col-md-2 validity"></span>
                             <br><br>
                             <span class="input-group-text">bis</span>
-                        <input id= 'sell_stoplos_bis' type="number" name="sell_stoplos_bis" min="1" max="1000" value="1000"  required="" placeholder="" class="form-control">
-                        <span class="validity"></span>
+                            <input id= 'sell_range_bis' type="number" name="sell_range_bis" min="1" max="1000" value="1000">
+                            <span class="col-md-2 validity"></span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <h3> Stoploss Sell range </h3>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">von</span>
+                            <input id= 'sell_stoplos_von' type="number" name="sell_stoplos_von" min="1" max="1000"  value="1">
+                            <span class="col-md-2 validity"></span>
+                            <br><br>
+                            <span class="input-group-text">bis</span>
+                            <input id= 'sell_stoplos_bis' type="number" name="sell_stoplos_bis" min="1" max="1000" value="1000" >
+                            <span class="col-md-2 validity"></span>
                         </div>
 
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3> Enter your Email adress please </h3>
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
-                        <input id="email_input" value="uu4axvkbuwdxcapx@ethereal.email" type="email" name="email_input" class="form-control" id="username" placeholder="Username" required="">
-                    </div>
+                    <div class="mb-3"></br></br></div>
+
 
                 </div>
+
+
             </div>
-
-            <!--<input type="submit" class="btn" id="findStrategieBtn" onclick="(function() {
-              require('./Javascript/handleSubmit').handleSubmit()})()" value="Find Strategie" />-->
-
-            <input type="submit" class="btn" id="findStrategieBtn" size="500" maxlength="100000" onclick="handleSubmit()" value="Find Strategie" />
+            <div class="mb-3">
+            <hr class="mb-3">
+            <button class ="btn btn-success btn-lg btn-block" type="submit" id="findStrategieBtn" size="500" maxlength="100000" onclick="handleSubmit()" value="Find Strategie" >Find Strategie</button>
+            </div>
         </form>
-        <script language="JavaScript" type="text/javascript" src="..\Javascript\Essentials.js"></script>
-        <script language="JavaScript" type="text/javascript" src="..\Javascript\display.js"></script>
-    </div>
     </div>
 </div>
+<script language="JavaScript" type="text/javascript" src="..\Javascript\Essentials.js"></script>
+<script language="JavaScript" type="text/javascript" src="..\Javascript\display.js"></script>
+
 
 
 </body>
